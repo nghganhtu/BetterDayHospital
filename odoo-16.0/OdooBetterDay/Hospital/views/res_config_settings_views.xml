@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.hospital</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Hospital" id="hospital" string="Hospital"
+                         data-key="hospital">
+                        <h2>Hospital Management</h2>
+                        <div class="row mt16 o_settings_container" id="hospital_setting">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">Cancellation Days</span>
+                                    <div class="text-muted content-group mt16">
+                                        <field name="cancel_days" class="text-center oe_inline"/>
+                                        <span> days</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hospital_config_settings_action" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'Hospital', 'bin_size': False}</field>
+        </record>
+
+        <menuitem id="hospital_config_settings_menu"
+                  name="Settings"
+                  parent="Hospital.menu_configuration"
+                  sequence="0"
+                  action="hospital_config_settings_action"
+                  groups="base.group_system"/>
+    </data>
+</odoo>

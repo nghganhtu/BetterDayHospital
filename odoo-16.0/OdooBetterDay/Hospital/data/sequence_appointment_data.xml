@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="seq_hospital_appointment" model="ir.sequence">
+        <field name="name">Hospital Appointment</field>
+        <field name="code">hospital.appointment</field>
+        <field name="prefix">OP</field>
+        <field name="padding">5</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+        <field eval="False" name="company_id"/>
+    </record>
+
+</odoo>
